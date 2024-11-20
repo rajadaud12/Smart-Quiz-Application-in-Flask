@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Quiz App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Intelli-Quest</h1>
+        </div>
+        
+        <div class="controls-container">
+            <div class="mode-container">
+                <h3>Mode</h3>
+                <button onclick="setMode('standard')" class="mode-btn mode-btn-standard">Standard</button>
+                <button onclick="setMode('interactive')" class="mode-btn mode-btn-interactive">Interactive</button>
+            </div>
+
+            <div class="difficulty-container">
+                <h3>Difficulty:</h3>
+                <button onclick="setDifficulty('easy')" class="difficulty-btn btn-easy">Easy</button>
+                <button onclick="setDifficulty('medium')" class="difficulty-btn btn-medium">Medium</button>
+                <button onclick="setDifficulty('hard')" class="difficulty-btn btn-hard">Hard</button>
+            </div>
+
+            <div class="algorithm-container">
+                <h3>Algorithm:</h3>
+                <button onclick="setAlgorithm('bfs')" class="algorithm-btn">BFS</button>
+                <button onclick="setAlgorithm('dfs')" class="algorithm-btn">DFS</button>
+                <button onclick="setAlgorithm('iterative')" class="algorithm-btn">Iterative Deepening</button>
+            </div>
+
+            <button onclick="startQuiz()" class="start-btn">Start Quiz</button>
+        </div>
+
+        <div class="stats-container" id="statsContainer">
+            <p class="stats-text">
+                Score: <span id="score" class="score">0</span> / 
+                <span id="total">0</span>
+            </p>
+            <p class="algorithm-info">
+                Algorithm: <span id="currentAlgorithm">BFS</span>
+            </p>
+            <p class="difficulty-info">
+                Current Difficulty: <span id="currentDifficulty">Easy</span>
+            </p>
+            <p class="execution-info">
+                Execution Time: <span id="executionTime">-</span>
+            </p>
+        </div>
+
+        <div id="questionContainer"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
